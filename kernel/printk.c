@@ -1,8 +1,17 @@
+#include "stdlib.h"
 #include "console.h"
 
-int printk(const char *str)
+static char printk_buf[512];
+
+int printk(const char *fmt, ...)
 {
-	con_write(str, 0x0b);
+	va_list args;
+
+	va_start(args, fmt);
+	vsnprintf(printk_buf, sizeof(printk_buf), fmt, args);
+	va_end(args);
+
+	con_write(printk_buf, 0x0b);
 
 	return 0;
 }

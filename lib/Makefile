@@ -11,6 +11,6 @@ $(MAKE_DEP):
 	@$(CC) $(CFLAGS) -MM *.c > $@
 
 clean:
-	-$(RM) *.o $(MAKE_DEP)
+	-$(RM) *.o $(LIB) $(MAKE_DEP)
 
 -include $(MAKE_DEP)

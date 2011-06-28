@@ -1,11 +1,11 @@
+#include "kernel.h"
 #include "console.h"
 
 void main(void)
 {
-	char buf[]="Hello, Flynix!";
-
 	con_clear();
-	printk(buf, 0xff);
+
+	printk("Hello, %s", "Flynix!");
 
 	while(1);
 
